@@ -10,6 +10,7 @@ if [ $(dpkg-query -W -f='${Status}' raspi-config 2>/dev/null | grep -c "ok insta
   whiptail --msgbox "Raspi-config is already installed, try upgrading it within raspi-config..." 10 60
 else
   wget https://archive.raspberrypi.org/debian/pool/main/r/raspi-config/raspi-config_20160527_all.deb -P /tmp
+  apt-get update 
   apt-get install libnewt0.52 whiptail parted triggerhappy lua5.1 alsa-utils -y
   # Auto install dependancies on eg. ubuntu server on RPI
   apt-get install -fy
